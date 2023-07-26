@@ -68,7 +68,8 @@ export default function Home() {
               <Stack spacing={2} direction="row" divider={<Divider orientation="vertical" flexItem />}>
                 <Button variant="outlined" onClick={() => router.push('/Create')}>Criação</Button>
                 <Button variant="outlined" onClick={() => router.push('/Edit')}disabled={disabledButton}>Edição</Button>
-                <Button variant="outlined" type="submit" onClick={deleteRow}disabled={ true /*disabledButton*/}>Deletar</Button>
+                <Button variant="outlined" type="submit" onClick={deleteRow}disabled={ false
+                   /*disabledButton*/}>Deletar</Button>
                 <Button variant="outlined" onClick={() => router.push('/checkin')} disabled={disabledButton}>Checkin</Button>
               </Stack>
               <Box sx={{ 
