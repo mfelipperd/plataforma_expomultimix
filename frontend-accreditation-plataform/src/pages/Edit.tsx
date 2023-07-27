@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable import/extensions */
 import React, { useState } from 'react';
-import Head from 'next/head'
+import Head from 'next/head';
 import type {} from '@mui/x-date-pickers/themeAugmentation';
 import FormDyna from '@/components/form';
 import { useAppSelector } from './hook';
@@ -12,16 +14,16 @@ import { formatDataFunction } from '@/middlewares/formtData';
 
 
 export default function Home() {
-  const {data: session} = useSession();
-  const router = useRouter()
-  const data = useAppSelector((state) => state.edit.value)
+  const { data: session } = useSession();
+  const router = useRouter();
+  const data = useAppSelector((state) => state.edit.value);
 
   function FormatDate(data:string) {
-    var day  = data.split("/")[0];
-    var month  = data.split("/")[1];
-    var year  = data.split("/")[2];
+    const day  = data.split('/')[0];
+    const month  = data.split('/')[1];
+    const year  = data.split('/')[2];
   
-    return year + '-' + ("0"+month).slice(-2) + '-' + ("0"+day).slice(-2);
+    return year + '-' + ('0' + month).slice(-2) + '-' + ('0' + day).slice(-2);
   }
 
   const values = {
@@ -29,13 +31,13 @@ export default function Home() {
     fabricationData: FormatDate(data.fabricationDate),
     pericive: data.perecive,
     validate: data.validate,
-    price: data.price
-  }
+    price: data.price,
+  };
 
   const editFunction = async (values: DataCreate) => {
     editProductApi(formatDataFunction(values, data.id)); 
-    router.push('/Dashboard')
-  } 
+    router.push('/Dashboard');
+  }; 
 
   const editForm = <>
   <Head>
@@ -50,10 +52,10 @@ export default function Home() {
     func={ editFunction }
     values={ values }
     />
-</>
-  if(data){
-    return editForm
+</>;
+  if (data) {
+    return editForm;
   } else {
-    return router.push('/Dashboard')
+    return router.push('/Dashboard');
   }
 }

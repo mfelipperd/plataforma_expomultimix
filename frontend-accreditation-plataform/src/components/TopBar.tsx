@@ -1,22 +1,22 @@
-import { Button } from "@mui/material";
-import { useRouter } from "next/router";
+import { Button } from '@mui/material';
+import { useRouter } from 'next/router';
 import styles from '../styles/topbar.module.css';
-import { signOut, useSession } from "next-auth/react";
+import { signOut, useSession } from 'next-auth/react';
 
 const TopBar = () => {
-    const router = useRouter();
-    const session = useSession()
-    console.log()
+  const router = useRouter();
+  const session = useSession();
+  console.log();
 
-    const logOutButton = async () => {
-        const result  = await signOut(
-            {
-                callbackUrl: '/'
-            }
-        );
-    };
+  const logOutButton = async () => {
+    const result  = await signOut(
+      {
+        callbackUrl: '/',
+      },
+    );
+  };
 
-    return (
+  return (
         <>
         <div className={styles.topbar}>
             <div className={styles.maxWidth}>
@@ -32,7 +32,7 @@ const TopBar = () => {
             </div>
         </div>
         </>
-    )
-}
+  );
+};
 
 export default TopBar;

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable import/extensions */
 import React, { useEffect, useState } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
 import Box from '@mui/material/Box';
@@ -8,71 +10,71 @@ import styles from '../styles/create.module.css';
 import type {} from '@mui/x-date-pickers/themeAugmentation';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { useRouter } from 'next/router';
 import DataCreate from '@/interfaces/dataCreate';
 import validateData from '@/middlewares/createMiddlewate';
 
 export default function FormDyna(props: { title: string; btnName: string; func: Function; values:any }) {
-    const { title, btnName, func, values } = props
+  const { title, btnName, func, values } = props;
 
-    const router = useRouter()
+  const router = useRouter();
 
-    const [name, setName] = useState('');
-    const [fabricationDate, setFabricationDate] = useState<Dayjs | null>(dayjs('2023-02-15'));
-    const [isPerecive, setIsPerecive] = useState(false);
-    const [validate, setValidate] = useState<Dayjs | null>(dayjs('2023-02-15'))
-    const [price, setPrice] = useState(0.0);
-    const [errorName, setErrorName] = useState(false);
+  const [name, setName] = useState('');
+  const [fabricationDate, setFabricationDate] = useState<Dayjs | null>(dayjs('2023-02-15'));
+  const [isPerecive, setIsPerecive] = useState(false);
+  const [validate, setValidate] = useState<Dayjs | null>(dayjs('2023-02-15'));
+  const [price, setPrice] = useState(0.0);
+  const [errorName, setErrorName] = useState(false);
 
     
-    const valuesToShow = () => {
-      if(values === undefined) {
-        return 
-      }
-      
-      setName(values.name)
-      setFabricationDate(dayjs(values.fabricationDate));
-      setIsPerecive(values.perevice);
-      setValidate(dayjs(values.fabricationDate));
-      setPrice(values.price);
+  const valuesToShow = () => {
+    if (values === undefined) {
+      return; 
     }
+      
+    setName(values.name);
+    setFabricationDate(dayjs(values.fabricationDate));
+    setIsPerecive(values.perevice);
+    setValidate(dayjs(values.fabricationDate));
+    setPrice(values.price);
+  };
     
-    const handleChangeFabricationDate = (newValue: Dayjs | null) => {
-        setFabricationDate(newValue)
-      };
+  const handleChangeFabricationDate = (newValue: Dayjs | null) => {
+    setFabricationDate(newValue);
+  };
 
-      const handleChangeValidateDate = (newValue: Dayjs | null) => {
-        setValidate(newValue)
-      };
+  const handleChangeValidateDate = (newValue: Dayjs | null) => {
+    setValidate(newValue);
+  };
 
-      const handleChangeCheckBox = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setIsPerecive(event.target.checked);
-      };
+  const handleChangeCheckBox = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsPerecive(event.target.checked);
+  };
 
-      const Submit = (data:DataCreate) => {
-        const isValid = validateData(data)
-        if(isValid==='O campo nome é obrigatorio') return setErrorName(true)
-        if(isValid==='A data de fabricação não pode ser maior que a data de válidade!') return window.alert('A data de fabricação não pode ser maior que a data de válidade!')
-        if(isValid==='O preço precisa ser maior que 0') return window.alert('O preço precisa ser maior que 0')
-        func(data)
-      }
+  const Submit = (data:DataCreate) => {
+    const isValid = validateData(data);
+    if (isValid === 'O campo nome é obrigatorio') return setErrorName(true);
+    if (isValid === 'A data de fabricação não pode ser maior que a data de válidade!') return window.alert('A data de fabricação não pode ser maior que a data de válidade!');
+    if (isValid === 'O preço precisa ser maior que 0') return window.alert('O preço precisa ser maior que 0');
+    func(data);
+  };
 
-      const handleSubmit = () => {
-        const data:DataCreate = {
-          name, 
-          fabricationDate,
-          isPerecive,
-          validate: isPerecive? validate: null,
-          price,
-        }
-        Submit(data);
-      }
+  const handleSubmit = () => {
+    const data:DataCreate = {
+      name, 
+      fabricationDate,
+      isPerecive,
+      validate: isPerecive ? validate : null,
+      price,
+    };
+    Submit(data);
+  };
 
-      useEffect(() => {
-        valuesToShow()
-      },[])
-    return(
+  useEffect(() => {
+    valuesToShow();
+  }, []);
+  return (
     <div className={styles.create}>
             <Box sx={{ 
               width: 400,
@@ -82,8 +84,8 @@ export default function FormDyna(props: { title: string; btnName: string; func: 
               flexDirection:'column',
               justifyContent:'center',
               alignItems:'center',
-              borderRadius:3
-              }}>
+              borderRadius:3,
+            }}>
                 <FormControl>
                     <Stack spacing={3} width={320}>
                         <h1>{title}</h1>
@@ -94,8 +96,9 @@ export default function FormDyna(props: { title: string; btnName: string; func: 
                         error={errorName}
                         value={name}
                         onChange={(e) => {
-                            setName(e.target.value) 
-                            setErrorName(false)}}/>
+                          setName(e.target.value); 
+                          setErrorName(false);
+                        }}/>
                         
                         <LocalizationProvider   LocalizationProvider dateAdapter={AdapterDayjs}>
                             <DesktopDatePicker
@@ -120,7 +123,7 @@ export default function FormDyna(props: { title: string; btnName: string; func: 
                                 inputFormat="DD/MM/YYYY"
                                 value={validate}
                                 onChange={handleChangeValidateDate}
-                                disabled={!isPerecive?true:false}
+                                disabled={!isPerecive ? true : false}
                                 renderInput={(params) => <TextField {...params} />}
                         />
                             {/* <MobileDatePicker
@@ -148,5 +151,5 @@ export default function FormDyna(props: { title: string; btnName: string; func: 
             </Box>
             
         </div>
-    )
+  );
 }

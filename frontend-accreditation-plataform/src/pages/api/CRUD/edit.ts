@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import FormatData from '@/interfaces/dataFormated';
 import apiFunction from '../fakeApi';
 

@@ -1,8 +1,8 @@
-import React, { useState, useRef } from "react";
-import { QrReader } from "react-qr-reader";
+import React, { useState, useRef } from 'react';
+import { QrReader } from 'react-qr-reader';
 
 function Scan() {
-  const [data, setData] = useState("");
+  const [data, setData] = useState('');
 
   return (
     <div >
@@ -11,17 +11,17 @@ function Scan() {
           onResult={(result, error) => {
             if (!!result) {
               console.log(result);
-              window.alert('funcionou')
+              window.alert('funcionou');
             }
             if (!!error) {
               console.info(error);
-              window.alert('DEU MERDA',)
+              window.alert('DEU MERDA');
             }
           } 
         }
 //this is facing mode : "environment " it will open backcamera of the smartphone and if not found will 
 // open the front camera
-        constraints    ={{ facingMode:  "environment"  }}
+        constraints    ={{ facingMode:  'environment'  }}
         />
         <p>{data}</p>
       </div>
