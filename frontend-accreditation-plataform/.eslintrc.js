@@ -7,9 +7,10 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
+    project: './tsconfig.json',
   },
-  plugins: ['import', 'jsx-a11y', 'react', 'react-hooks'],
-  extends: ['airbnb-typescript'],
+  plugins: ['import', 'jsx-a11y', 'react', 'react-hooks', '@typescript-eslint'],
+  extends: ['airbnb-typescript', 'plugin:@typescript-eslint/recommended'],
   env: {
     browser: true,
     es2021: true,
