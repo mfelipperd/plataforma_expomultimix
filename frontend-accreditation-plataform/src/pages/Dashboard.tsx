@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable import/extensions */
 import React, { useEffect, useState } from 'react';
@@ -15,7 +16,7 @@ import { dataOnStore } from '@/slices/editSlic';
 import { useSession } from 'next-auth/react';
 import TopBar from '@/components/TopBar';
 import LogOut from '@/components/Logout';
-import { deleteDataApi } from './api/CRUD/delete';
+// import { deleteDataApi } from './api/CRUD/delete';
 import columnsDataGrid from '@/shared/columnsDataGrid';
 import * as CryptoJS from 'crypto-js';
 
@@ -45,10 +46,10 @@ export default function Home() {
     setRows(JSON.parse(descriptografado));
   }; 
 
-  const deleteRow = async () => {
-    deleteDataApi(id);
-    fetchData();
-  };
+  // const deleteRow = async () => {
+  //   deleteDataApi(id);
+  //   fetchData();
+  // };
   useEffect(()=> {
     fetchData();
   }, []);
@@ -68,10 +69,7 @@ export default function Home() {
               justifyContent: 'center',
             }}>
               <Stack spacing={2} direction="row" divider={<Divider orientation="vertical" flexItem />}>
-                <Button variant="outlined" onClick={() => router.push('/Create')}>Criação</Button>
-                <Button variant="outlined" onClick={() => router.push('/Edit')}disabled={disabledButton}>Edição</Button>
-                <Button variant="outlined" type="submit" onClick={deleteRow}disabled={ false
-                   /*disabledButton*/}>Deletar</Button>
+                <Button variant="outlined" onClick={() => router.push('/Create')}>CADASTRAR</Button>
                 <Button variant="outlined" onClick={() => router.push('/checkin')} disabled={disabledButton}>Checkin</Button>
               </Stack>
               <Box sx={{ 
