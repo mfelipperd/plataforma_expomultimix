@@ -1,5 +1,6 @@
 import { Button, Container, Stack } from '@mui/material';
-import { useAppSelector } from './hook';
+import { useAppSelector } from '../shared/hook';
+
 import apiFunction from './api/fakeApi';
 import { useRouter } from 'next/router';
 

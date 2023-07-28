@@ -5,7 +5,8 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import type {} from '@mui/x-date-pickers/themeAugmentation';
 import FormDyna from '@/components/form';
-import { useAppSelector } from './hook';
+import { useAppSelector } from '../shared/hook';
+
 import DataCreate from '@/interfaces/dataCreate';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';

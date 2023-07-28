@@ -1,4 +1,5 @@
-import { useAppSelector } from './hook';
+import { useAppSelector } from '../shared/hook';
+
 import style  from '../styles/etiqueta.module.css';
 import { useRouter } from 'next/router';
 
