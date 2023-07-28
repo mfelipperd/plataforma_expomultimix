@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import dayjs, { Dayjs } from 'dayjs';
 interface DataCreate {
   name:string;
