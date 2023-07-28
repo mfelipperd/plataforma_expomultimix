@@ -7,6 +7,15 @@ export default function etiqueta() {
   const data = useAppSelector((state) => state.edit.value);
   const router = useRouter();
 
+  if (!data) return (
+    <div>
+      <h1>
+        USUÁRIO NÃO SELECIONADO
+      </h1>
+      <button type='button' onClick={() => router.push('/Dashboard')}>Dashboard</button>
+    </div>
+  );
+
   return (
         <div className={style.impDiv}>
             <h1>{ data.name ? data.name : 'nome' }</h1>

@@ -31,6 +31,17 @@ export default function Checkin() {
     router.push('/etiqueta');
   }
 
+
+
+  if (!data) return (
+    <div>
+      <h1>
+        USUÁRIO NÃO SELECIONADO
+      </h1>
+      <button type='button' onClick={() => router.push('/Dashboard')}>Dashboard</button>
+    </div>
+  );
+
   return (
         <Container
         maxWidth="xl"
