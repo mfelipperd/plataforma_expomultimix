@@ -1,4 +1,3 @@
-import DataCreate from '@/interfaces/dataCreate';
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {
