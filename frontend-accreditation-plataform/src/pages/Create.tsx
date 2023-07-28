@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable import/extensions */
 'use client';
@@ -118,9 +119,7 @@ export default function Home() {
     router.push('/etiqueta');
   }
 
-  const link = <a href="https://www.expomultimix.com/">termos de uso</a>;
-  const terms = `Sim, eu aceito os ${link}`;
-
+  
   const form = <div className={style.maxWidth}>
       <Stack
       component="form"

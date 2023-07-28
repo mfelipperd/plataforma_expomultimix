@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable import/extensions */
 import DataCreate from '@/interfaces/dataCreate';
 import FormatData from '@/interfaces/dataFormated';

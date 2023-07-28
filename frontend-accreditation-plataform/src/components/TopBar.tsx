@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Button } from '@mui/material';
 // import { useRouter } from 'next/router';
 import styles from '../styles/topbar.module.css';
