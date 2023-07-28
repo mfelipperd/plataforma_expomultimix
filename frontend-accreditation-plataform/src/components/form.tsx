@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable import/extensions */
 import React, { useEffect, useState } from 'react';
@@ -5,11 +6,10 @@ import dayjs, { Dayjs } from 'dayjs';
 import Box from '@mui/material/Box';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import FormControl from '@mui/material/FormControl';
-import { Button, Checkbox, FormControlLabel, Stack, TextField, createTheme } from '@mui/material';
+import { Button, Checkbox, FormControlLabel, Stack, TextField } from '@mui/material';
 import styles from '../styles/create.module.css';
 import type {} from '@mui/x-date-pickers/themeAugmentation';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { useRouter } from 'next/router';
 import DataCreate from '@/interfaces/dataCreate';

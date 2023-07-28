@@ -7,7 +7,7 @@ import styles from '../styles/login.module.css';
 import Button from '@mui/material/Button';
 import { checkPasswordIdCorrect, checkEmailExists }  from '../middlewares/loginMiddleware';
 import * as EmailValidator from 'email-validator';
-import apiFunction from '../pages/api/fakeApi';
+//import apiFunction from '../pages/api/fakeApi';
 import { authDataLogin } from '@/middlewares/authMiddleware';
 
 const Login = () => {
@@ -34,7 +34,7 @@ const Login = () => {
     const isEmailValid = EmailValidator.validate(email);
     if (!isEmailValid) return window.alert('Digite um email válido.');
     if (password.length < 6) return window.alert('A senha deve conter pelo menos 6 caracteres.');
-    const response = await apiFunction.post('users', { email, senha:password });
+    // const response = await apiFunction.post('users', { email, senha:password });
     await authDataLogin(email, password);
   };
 

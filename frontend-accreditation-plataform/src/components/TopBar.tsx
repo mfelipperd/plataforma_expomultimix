@@ -1,10 +1,10 @@
 import { Button } from '@mui/material';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import styles from '../styles/topbar.module.css';
 import { signOut, useSession } from 'next-auth/react';
 
 const TopBar = () => {
-  const router = useRouter();
+  // const router = useRouter();
   const session = useSession();
   console.log();
 
