@@ -14,8 +14,6 @@ import { useDispatch } from 'react-redux';
 import * as CryptoJS from 'crypto-js';
 import { useRouter } from 'next/router';
 import { dataOnStore } from '@/slices/editSlic';
-import Scan from '@/components/QRCodeReader';
-
 
 export default function Home() {
   const [name, setName] = useState('Nome');
@@ -27,7 +25,6 @@ export default function Home() {
   const [sector, setSector] = useState('Setor');
   const [marketing, setMarketing] = useState('Como soube da feira?');
   const [disabled, setDisabled] = useState(true); 
-  const [qrcode, setQrcode] = useState('');
   const [sucessed, setSucessed] = useState(false);
   const [id, setId] = useState('');
   const router = useRouter();
