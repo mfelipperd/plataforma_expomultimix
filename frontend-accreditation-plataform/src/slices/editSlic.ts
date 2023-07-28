@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { createSlice,  PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {
   data: {},

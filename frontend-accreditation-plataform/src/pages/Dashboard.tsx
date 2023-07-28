@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable import/extensions */
 import React, { useEffect, useState } from 'react';
 import Stack from '@mui/material/Stack';
