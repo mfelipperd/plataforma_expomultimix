@@ -5,6 +5,10 @@ import checkinFunction from '../shared/checkinFunction';
 
 export default function Home() {
   const [id, setId] = useState<number>(0);
+  function checkinFunctionMobile(day:string, iDF: number) {
+    checkinFunction(day, iDF);
+    setId(0);
+  }
 
 
   return (
@@ -37,9 +41,9 @@ export default function Home() {
       width:'90%',
       height: '40%',
     }}>
-                <Button variant="outlined" onClick={()=>checkinFunction('1', id)}>Checkin dia 1</Button>
-                <Button variant="outlined" onClick={()=>checkinFunction('2', id)}>Checkin dia 2</Button>
-                <Button variant="outlined" onClick={()=>checkinFunction('3', id)}>Checkin dia 3</Button>
+                <Button variant="outlined" onClick={()=>checkinFunctionMobile('1', id)}>Checkin dia 1</Button>
+                <Button variant="outlined" onClick={()=>checkinFunctionMobile('2', id)}>Checkin dia 2</Button>
+                <Button variant="outlined" onClick={()=>checkinFunctionMobile('3', id)}>Checkin dia 3</Button>
             </Stack> 
     </Stack>
     </div>
