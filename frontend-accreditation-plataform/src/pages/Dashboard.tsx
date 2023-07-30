@@ -89,6 +89,7 @@ export default function Home() {
                   
                 />
               </Box>
+              <Button variant="outlined" onClick={() => router.push('/checkinMobile')}>CHECKIN CELULAR</Button>
             </Box>
           </div>
         </>

@@ -15,6 +15,7 @@ import { useDispatch } from 'react-redux';
 import * as CryptoJS from 'crypto-js';
 import { useRouter } from 'next/router';
 import { dataOnStore } from '@/slices/editSlic';
+import checkinFunction from '@/shared/checkinFunction';
 
 export default function Home() {
   const [name, setName] = useState('Nome');
@@ -97,28 +98,10 @@ export default function Home() {
     setSucessed(true);
   }
 
-  function checkinFunction(day:string) {
-    if (day === '1') {
-      apiFunction.patch(`user/${id}`, {
-        checkin1: true,
-      });
-      window.alert('Checkin Realizado com sucesso');
-    }
-    if (day === '2') {
-      apiFunction.patch(`user/${id}`, {
-        checkin2: true,
-      });
-      window.alert('Checkin Realizado com sucesso');
-    }
-    if (day === '3') {
-      apiFunction.patch(`user/${id}`, {
-        checkin3: true,
-      });
-      window.alert('Checkin Realizado com sucesso');
-    }
+  function checkinFunctionCreate(day:string, iDF:number) {
+    checkinFunction(day, iDF);
     router.push('/etiqueta');
   }
-
   
   const form = <div className={style.maxWidth}>
       <Stack
@@ -235,9 +218,9 @@ marginBottom={10}
   >
   </Stack>
   <h1>Inscrição confirmada</h1>
-  <Button variant="outlined" onClick={()=>checkinFunction('1')}>Fazer Checkin dia 1</Button>
-                <Button variant="outlined" onClick={()=>checkinFunction('2')}>Fazer Checkin dia 2</Button>
-                <Button variant="outlined" onClick={()=>checkinFunction('3')}>Fazer Checkin dia 3</Button>
+  <Button variant="outlined" onClick={()=>checkinFunctionCreate('1', parseInt(id))}>Fazer Checkin dia 1</Button>
+  <Button variant="outlined" onClick={()=>checkinFunctionCreate('2', parseInt(id))}>Fazer Checkin dia 2</Button>
+  <Button variant="outlined" onClick={()=>checkinFunctionCreate('3', parseInt(id))}>Fazer Checkin dia 3</Button>
 </Stack>
 </div>;
   return sucessed ? sucess : form;
